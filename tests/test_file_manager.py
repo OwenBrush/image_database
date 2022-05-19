@@ -59,8 +59,16 @@ def test_is_image_portrait():
     assert fm.is_image_portrait(BLUE_SQUARE_IMAGE) == False
     
 
-# def test_is_image_square():
-#     pass
+def test_is_image_square():
+    """
+    GIVEN FileManager is instantiated
+    WHEN the is_image_square method is called with a valid filename
+    THEN the a boolean value is returned indicating whether the image height is equal to the image width
+    """
+    fm = FileManager()
+    assert fm.is_image_square(RED_IMAGE) == False
+    assert fm.is_image_square(BLACK_WHITE_IMAGE) == False
+    assert fm.is_image_square(BLUE_SQUARE_IMAGE) == True
 
 
 # def test_is_image_transparent():

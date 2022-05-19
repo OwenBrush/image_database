@@ -35,6 +35,12 @@ class FileManager():
         return img.size[0] < img.size[1]
         
         
+    def is_image_square(self, filepath:str) -> bool:
+        """Returns boolean value indicating whether image height is equal to the image width"""
+        img = Image.open(filepath)
+        return img.size[0] == img.size[1]
+        
+        
     def get_average_color(self, filepath:str) -> tuple:
         """Returns averaged RGB values from given image filepath"""
         img = Image.open(filepath)
