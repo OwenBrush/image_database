@@ -41,6 +41,14 @@ class FileManager():
         return img.size[0] == img.size[1]
         
         
+    def is_image_transparent(self, filepath:str) -> bool:
+        """Returns boolean value indicating whether image contains any pixels with alpha value"""
+        img = Image.open(filepath)
+        alpha = img.split()[-1]
+        alpha_sum = (255 - np.asarray(alpha)).sum()
+        return alpha_sum > 0
+        
+        
     def get_average_color(self, filepath:str) -> tuple:
         """Returns averaged RGB values from given image filepath"""
         img = Image.open(filepath)

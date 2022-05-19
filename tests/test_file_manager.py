@@ -5,6 +5,8 @@ RED_IMAGE = 'images/red_64_96.png'
 WHITE_IMAGE = 'images/white_9_1000.png'
 BLACK_WHITE_IMAGE = 'images/black_white_2_1.png'
 BLUE_SQUARE_IMAGE = 'images/blue_600_600.png'
+TRANSPARENT_IMAGE = 'images/green_transparent_800_600.png'
+OPAQUE_IMAGE = 'images/yellow_opaque_800_600.png'
 TEXT_FILE = 'images/not_an_image.txt'
 
 def test_get_average_color():
@@ -71,8 +73,15 @@ def test_is_image_square():
     assert fm.is_image_square(BLUE_SQUARE_IMAGE) == True
 
 
-# def test_is_image_transparent():
-#     pass
+def test_is_image_transparent():
+    """
+    GIVEN FileManager is instantiated
+    WHEN the is_image_transparent method is called with a valid filename
+    THEN the a boolean value is returned indicating whether the image contains any pixels with an alpha value
+    """
+    fm = FileManager()
+    assert fm.is_image_transparent(TRANSPARENT_IMAGE) == True
+    assert fm.is_image_transparent(BLUE_SQUARE_IMAGE) == False
 
 
 # def test_get_file_size():
