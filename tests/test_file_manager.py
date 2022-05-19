@@ -1,8 +1,10 @@
 from app.file_manager import FileManager
 
+IMAGE_DIR = 'images'
 RED_IMAGE = 'images/red_64_96.png'
 WHITE_IMAGE = 'images/white_9_1000.png'
 BLACK_WHITE_IMAGE = 'images/black_white_2_1.png'
+TEXT_FILE = 'images/not_an_image.txt'
 
 def test_get_average_color():
     """
@@ -16,7 +18,9 @@ def test_get_average_color():
     white = fm.get_average_color(WHITE_IMAGE)
     gray = fm.get_average_color(BLACK_WHITE_IMAGE)
     
-    assert tuple(red) == (255, 0, 0)
-    assert tuple(white) == (255, 255, 255)
-    assert tuple(gray) == (127.5, 127.5, 127.5)
+    assert red == (255, 0, 0)
+    assert white == (255, 255, 255)
+    assert gray == (127.5, 127.5, 127.5)
+    
+
     
