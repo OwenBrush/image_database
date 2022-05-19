@@ -4,6 +4,7 @@ IMAGE_DIR = 'images'
 RED_IMAGE = 'images/red_64_96.png'
 WHITE_IMAGE = 'images/white_9_1000.png'
 BLACK_WHITE_IMAGE = 'images/black_white_2_1.png'
+BLUE_SQUARE_IMAGE = 'images/blue_600_600.png'
 TEXT_FILE = 'images/not_an_image.txt'
 
 def test_get_average_color():
@@ -45,3 +46,30 @@ def test_get_image_dimensions():
     assert fm.get_image_dimensions(RED_IMAGE) == (64, 96)
     assert fm.get_image_dimensions(BLACK_WHITE_IMAGE) == (2, 1)
 
+
+def test_is_image_portrait():
+    """
+    GIVEN FileManager is instantiated
+    WHEN the is_image_portrait method is called with a valid filename
+    THEN the a boolean value is returned indicating whether the image height is greater than the image width
+    """
+    fm = FileManager()
+    assert fm.is_image_portrait(RED_IMAGE) == True
+    assert fm.is_image_portrait(BLACK_WHITE_IMAGE) == False
+    assert fm.is_image_portrait(BLUE_SQUARE_IMAGE) == False
+    
+
+# def test_is_image_square():
+#     pass
+
+
+# def test_is_image_transparent():
+#     pass
+
+
+# def test_get_file_size():
+#     pass
+
+
+# def test_similar_images():
+#     pass

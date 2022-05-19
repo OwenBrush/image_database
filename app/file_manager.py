@@ -29,10 +29,15 @@ class FileManager():
         return (img.size)
         
         
+    def is_image_portrait(self, filepath:str) -> bool:
+        """Returns boolean value indicating whether image height is greater than image width"""
+        img = Image.open(filepath)
+        return img.size[0] < img.size[1]
+        
+        
     def get_average_color(self, filepath:str) -> tuple:
         """Returns averaged RGB values from given image filepath"""
         img = Image.open(filepath)
         pixels = np.asarray(img.getdata()).astype(float)    
         return tuple(pixels.mean(axis=0))
-        
         
