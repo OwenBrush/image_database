@@ -21,6 +21,15 @@ def test_get_average_color():
     assert red == (255, 0, 0)
     assert white == (255, 255, 255)
     assert gray == (127.5, 127.5, 127.5)
+   
     
-
-    
+def test_load_image_files():
+    """
+    GIVEN FileManager is instantiated
+    WHEN the load_file method is called with an image directory containing non image files
+    THEN the resulting file list only contains paths to valid images
+    """
+    fm = FileManager()
+    fm.load_image_files(IMAGE_DIR)
+    assert not TEXT_FILE in fm.files
+    assert RED_IMAGE in fm.files
