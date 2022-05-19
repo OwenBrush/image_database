@@ -33,3 +33,15 @@ def test_load_image_files():
     fm.load_image_files(IMAGE_DIR)
     assert not TEXT_FILE in fm.files
     assert RED_IMAGE in fm.files
+    
+    
+def test_get_image_dimensions():
+    """
+    GIVEN FileManager is instantiated
+    WHEN the get_image_dimensions method is called with a valid filename
+    THEN the width and height of the image are returned as a tuple
+    """
+    fm = FileManager()
+    assert fm.get_image_dimensions(RED_IMAGE) == (64, 96)
+    assert fm.get_image_dimensions(BLACK_WHITE_IMAGE) == (2, 1)
+
