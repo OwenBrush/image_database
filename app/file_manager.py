@@ -59,3 +59,10 @@ class FileManager():
         pixels = np.asarray(img.getdata()).astype(float)    
         return tuple(pixels.mean(axis=0))
         
+
+    def get_file_size(self, filepath:str) -> int:
+        """Returns filesize in bytes from given filepath"""
+        return os.path.getsize(filepath)
+
+    def as_dataframe(self):
+        pass
