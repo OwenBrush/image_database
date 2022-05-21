@@ -44,7 +44,11 @@ class FileManager():
     def is_image_transparent(self, filepath:str) -> bool:
         """Returns boolean value indicating whether image contains any pixels with alpha value"""
         img = Image.open(filepath)
-        alpha = img.split()[-1]
+        channels = img.split()
+        if len(channels) < 4:
+            return False
+        
+        alpha = channels[3]
         alpha_sum = (255 - np.asarray(alpha)).sum()
         return alpha_sum > 0
         

@@ -6,7 +6,7 @@ WHITE_IMAGE = 'images/white_9_1000.png'
 BLACK_WHITE_IMAGE = 'images/black_white_2_1.png'
 BLUE_SQUARE_IMAGE = 'images/blue_600_600.png'
 TRANSPARENT_IMAGE = 'images/green_transparent_800_600.png'
-OPAQUE_IMAGE = 'images/yellow_opaque_800_600.png'
+OPAQUE_IMAGE = 'images/yellow_opaque_alpha_800_600.png'
 TEXT_FILE = 'images/not_an_image.txt'
 
 def test_get_average_color():
@@ -81,7 +81,8 @@ def test_is_image_transparent():
     """
     fm = FileManager()
     assert fm.is_image_transparent(TRANSPARENT_IMAGE) == True
-    assert fm.is_image_transparent(BLUE_SQUARE_IMAGE) == False
+    assert fm.is_image_transparent(RED_IMAGE) == False
+    assert fm.is_image_transparent(OPAQUE_IMAGE) == False
 
 
 # def test_get_file_size():
