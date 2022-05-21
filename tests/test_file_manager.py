@@ -1,5 +1,6 @@
 from app.file_manager import FileManager
 import pandas as pd
+import os
 
 IMAGE_DIR = 'images'
 RED_IMAGE = 'images/red_64_96.png'
@@ -9,7 +10,7 @@ BLUE_SQUARE_IMAGE = 'images/blue_600_600.png'
 TRANSPARENT_IMAGE = 'images/green_transparent_800_600.png'
 OPAQUE_IMAGE = 'images/yellow_opaque_alpha_800_600.png'
 TEXT_FILE = 'images/not_an_image.txt'
-DF_COLUMNS = ['avg_color','width','height','portrait','square','transparency', 'size']
+DF_COLUMNS = ['file_name', 'width', 'height', 'portrait', 'square', 'transparency','r' ,'g' ,'b' ,'bytes']
 
 def test_load_image_files():
     """
@@ -98,15 +99,14 @@ def test_get_file_size():
     assert fm.get_file_size(OPAQUE_IMAGE) == 10101 
 
 
-# def test_as_dataframe():
-#     """
-#     GIVEN FileManager.load_image_files() has been called with a directory path containing images
-#     WHEN the as_dataframe method is called
-#     THEN the a pandas dataframe with all relevant information for each file is returned.
-#     """  
-#     fm = FileManager()
-#     fm.load_image_files(IMAGE_DIR)
-#     df = fm.as_dataframe()
-#     assert type(df) == pd.DataFrame
-#     assert all(i in df.column for i in DF_COLUMNS)
-    
+def test_as_dataframe():
+    """
+    GIVEN FileManager.load_image_files() has been called with a directory path containing images
+    WHEN the as_dataframe method is called
+    THEN the a pandas dataframe with all relevant information for each file is returned.
+    """  
+    fm = FileManager()
+    fm.load_image_files(IMAGE_DIR)
+    df = fm.as_dataframe()
+    assert type(df) == pd.DataFrame
+    assert all(i in df.columns for i in DF_COLUMNS)

@@ -1,7 +1,7 @@
 from PIL import Image
 import numpy as np
 import os
-import pathlib
+import pandas as pd
 
 DEFAULT_DIR = 'images'
 
@@ -65,4 +65,19 @@ class FileManager():
         return os.path.getsize(filepath)
 
     def as_dataframe(self):
-        pass
+        df = pd.DataFrame()
+        df['file_name'] = [f.split(os.sep)[-1] for f in self.files]
+        dimensions = [self.get_image_dimensions(f) for f in self.files]
+        df['width'] = [d[0] for d in dimensions]
+        df['height'] = [d[1] for d in dimensions]
+        df['portrait'] = [self.is_image_portrait(f) for f in self.files]
+        df['square'] = [self.is_image_square(f) for f in self.files]
+        df['transparency'] = [self.is_image_transparent(f) for f in self.files]
+        rgb = [self.get_average_color(f) for f in self.files]
+        df['r'] = [v[0] for v in rgb]      
+        df['g'] = [v[1] for v in rgb]
+        df['b'] = [v[2] for v in rgb]
+        df['bytes'] = [self.get_file_size(f) for f in self.files]
+        return df
+        
+        # DF_COLUMNS = ['file_name', 'width', 'height', 'portrait', 'square', 'transparency','r' ,'g' ,'b' ,'bytes']
