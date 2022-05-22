@@ -1,6 +1,5 @@
 from app.search_engine import SearchEngine
 from app.file_manager import FileManager
-import os
 
 YELLOW_IMAGE = 'yellow_opaque_alpha_800_600.png'
 
@@ -37,8 +36,6 @@ def test_apply_filters():
     fm = FileManager()
     df = fm.as_dataframe()
     
-    # ['name', 'width', 'height', 'portrait', 'square', 'landscape', 'transparent','opaque', 'red' ,'green' ,'blue' ,'bytes']
-    
     assert se.apply_filters(df, 'name yellow')['name'].str.contains(YELLOW_IMAGE).all()
     assert se.apply_filters(df,'width < 800')['width'].max() < 800
     assert se.apply_filters(df,'height = 600')['width'].min() == 600
@@ -51,3 +48,15 @@ def test_apply_filters():
     assert (se.apply_filters(df,'landscape')['landscape'] == True).all()
     assert (se.apply_filters(df,'transparent')['transparent'] == True).all()
     assert (se.apply_filters(df,'opaque')['opaque'] == True).all()
+    
+def test_apply_filters_2():
+    """
+    GIVEN SearchEngine is instantiated and FileManager has loaded the test images
+    WHEN apply_filters method is called with the dataframe from FileManager and no query is given
+    THEN then full dataframe is returned
+    """
+    se = SearchEngine()
+    fm = FileManager()
+    df = fm.as_dataframe()
+    
+    assert len(se.apply_filters(df, '')) == len(df)

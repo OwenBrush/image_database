@@ -1,6 +1,5 @@
 from app.file_manager import FileManager
 import pandas as pd
-import os
 
 IMAGE_DIR = 'images'
 RED_IMAGE = 'images/red_64_96.png'
