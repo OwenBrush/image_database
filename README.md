@@ -16,4 +16,5 @@
 
 - Click the green 'run' button to start it
 - To see search results you may need to scroll the console up after entering a command
+- It may take a moment to load dependancies before running
 
