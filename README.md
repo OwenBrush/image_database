@@ -1,6 +1,6 @@
 # Goals:
 
-- This is a simple search interface for a repository of image
+- This is a simple search interface for a repository of images
 - Developed with Test Driven Development principals
 - Created for the Shopify data engineering internship challenge
 
