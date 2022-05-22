@@ -12,5 +12,8 @@
 
 # Try it out:
 
-[Run it from a virtual IDE](https://replit.com/@OwenBrush/imagedatabase#.replit)  (to see search results you may need to scroll the console up after entering a command)
+[Run it from a virtual IDE here](https://replit.com/@OwenBrush/imagedatabase#.replit)  
+
+- Click the green 'run' button to start it
+- To see search results you may need to scroll the console up after entering a command
 
