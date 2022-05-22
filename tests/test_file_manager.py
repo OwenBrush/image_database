@@ -10,7 +10,7 @@ BLUE_SQUARE_IMAGE = 'images/blue_600_600.png'
 TRANSPARENT_IMAGE = 'images/green_transparent_800_600.png'
 OPAQUE_IMAGE = 'images/yellow_opaque_alpha_800_600.png'
 TEXT_FILE = 'images/not_an_image.txt'
-DF_COLUMNS = ['name', 'width', 'height', 'portrait', 'square', 'landscape', 'transparent','red' ,'green' ,'blue' ,'bytes']
+DF_COLUMNS = ['name', 'width', 'height', 'portrait', 'square', 'landscape', 'transparent','opaque', 'red' ,'green' ,'blue' ,'bytes']
 
 def test_load_image_files():
     """

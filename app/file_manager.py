@@ -74,6 +74,7 @@ class FileManager():
         df['square'] = [self.is_image_square(f) for f in self.files]
         df['landscape'] = ~df[['portrait','square']].any(axis=1)
         df['transparent'] = [self.is_image_transparent(f) for f in self.files]
+        df['opaque'] = ~df['transparent']
         rgb = [self.get_average_color(f) for f in self.files]
         df['red'] = [v[0] for v in rgb]      
         df['green'] = [v[1] for v in rgb]

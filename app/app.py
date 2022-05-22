@@ -32,6 +32,7 @@ def display_search_console():
 
     
 def display_search_results():
+    pass
 
 if __name__ == '__main__':
     display_search_console()
